@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoアプリ</title>
+  <script src="https://unpkg.com/vue@2.6.14"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <h1>ToDoアプリ</h1>
+  <div id="main">
+    <input type="text" placeholder="ToDo内容を入力" class="item-new-input">
+    <button @click="createItem">登録</button>
+    <h2>ToDo一覧</h2>
+    <ul class="todo-item-list">
+      <li v-for="(item, index) in todoItems" :key="item" class="todo-item">
+        <div>
+          <span>{{item}}</span>
+        </div>
+        <div>
+          <input type="text" class="item-edit-input">
+          <button @click="updateItem(index, $event)">更新</button>
+          <button @click="deleteItem(index)">削除</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>
+<script src="./js/index.js"></script>
+</html>
