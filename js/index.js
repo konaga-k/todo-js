@@ -18,6 +18,7 @@ new Vue({
     createItem: function () {
       const inputNode = document.querySelector('input.item-new-input')
       this.todoItems.push({ body: inputNode.value })
+      inputNode.value = ''
     },
     editItem: function () {
       this.canEdit = true
