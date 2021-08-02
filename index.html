@@ -13,17 +13,15 @@
     <button @click="createItem">登録</button>
     <h2>ToDo一覧</h2>
     <ul class="todo-item-list">
-      <li v-for="(item, index) in todoItems" :key="item" class="todo-item">
-        <div>
-          <span>{{item}}</span>
-        </div>
-        <div>
-          <input type="text" class="item-edit-input">
-          <button @click="updateItem(index, $event)">更新</button>
-          <button @click="deleteItem(index)">削除</button>
-        </div>
+      <li v-for="(item, index) in todoItems" :key="index" class="todo-item">
+        <span v-show="!canEdit">{{item.body}}</span>
+        <input type="text" v-model="item.body" v-show="canEdit">
+        <button @click="updateItem(index, item)" v-show="canEdit">更新</button>
+        <button @click="deleteItem(index)" v-show="canEdit">削除</button>
       </li>
     </ul>
+    <button @click="editItem" v-show="!canEdit">編集</button>
+    <button @click="listItem" v-show="canEdit">一覧</button>
   </div>
 </body>
 <script src="./js/index.js"></script>
