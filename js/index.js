@@ -1,8 +1,7 @@
 new Vue({
   el: '#main',
   data: {
-    todoItems: [],
-    canEdit: false
+    todoItems: []
   },
   mounted() {
     if (localStorage.todoItems) {
@@ -17,22 +16,24 @@ new Vue({
   methods: {
     createItem: function () {
       const inputNode = document.querySelector('input.item-new-input')
-      this.todoItems.push({ body: inputNode.value })
+      const newItem = {
+        body: inputNode.value,
+        editing: false,
+        editingBody: inputNode.value
+      }
+      this.todoItems.push(newItem)
       inputNode.value = ''
     },
-    editItem: function () {
-      this.canEdit = true
-    },
-    listItem: function () {
-      this.canEdit = false
+    editItem: function (item) {
+      item.editing = true
     },
     updateItem: function (index, item) {
+      item.body = item.editingBody
       this.$set(this.todoItems, index, item)
-      this.canEdit = false
+      item.editing = false
     },
     deleteItem: function (index) {
       this.todoItems.splice(index, 1)
-      this.canEdit = false
     }
   },
 })
