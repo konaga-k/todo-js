@@ -14,11 +14,15 @@
     <h2>ToDo一覧</h2>
     <ul class="todo-item-list">
       <li v-for="(item, index) in todoItems" :key="index" class="todo-item">
-        <span v-show="!item.editing">{{item.body}}</span>
-        <button @click="editItem(item)" v-show="!item.editing" >編集</button>
-        <input type="text" v-model="item.editingBody" v-show="item.editing">
-        <button @click="updateItem(index, item)" v-show="item.editing">更新</button>
-        <button @click="deleteItem(index)" v-show="item.editing">削除</button>
+        <div v-show="!item.editing">
+          <span>{{item.body}}</span>
+          <button @click="editItem(item)">編集</button>
+        </div>
+        <div v-show="item.editing">
+          <input type="text" v-model="item.editingBody">
+          <button @click="updateItem(index, item)">更新</button>
+          <button @click="deleteItem(index)">削除</button>
+        </div>
       </li>
     </ul>
   </div>
