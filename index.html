@@ -9,7 +9,7 @@
 <body>
   <h1>ToDoアプリ</h1>
   <div id="main">
-    <input type="text" placeholder="ToDo内容を入力" class="item-new-input">
+    <input type="text" v-model="newItemBody" placeholder="ToDo内容を入力" class="item-new-input">
     <button @click="createItem">登録</button>
     <h2>ToDo一覧</h2>
     <ul class="todo-item-list">
