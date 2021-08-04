@@ -1,0 +1,24 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Vue.jsで作成するToDoアプリ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konaga-k/todo-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/konaga-k/todo-js/issues"
+  },
+  "homepage": "https://github.com/konaga-k/todo-js#readme",
+  "devDependencies": {
+    "eslint": "^7.31.0",
+    "eslint-plugin-vue": "^7.14.0"
+  }
+}

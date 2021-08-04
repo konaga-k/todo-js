@@ -1,2 +1,2 @@
 # todo-js
-Vue.jsで作成するTODOアプリ
+Vue.jsで作成するToDoアプリ
