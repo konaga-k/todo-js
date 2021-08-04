@@ -1,3 +1,5 @@
+const storageItemName = 'todoItems'
+
 new Vue({
   el: '#main',
   data: {
@@ -6,12 +8,12 @@ new Vue({
   },
   mounted() {
     if (localStorage.todoItems) {
-      this.todoItems = JSON.parse(localStorage.getItem('todoItems'))
+      this.todoItems = JSON.parse(localStorage.getItem(storageItemName))
     }
   },
   watch: {
     todoItems() {
-      localStorage.setItem('todoItems', JSON.stringify(this.todoItems))
+      localStorage.setItem(storageItemName, JSON.stringify(this.todoItems))
     }
   },
   methods: {
