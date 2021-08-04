@@ -7,7 +7,7 @@ new Vue({
     newItemBody: ''
   },
   mounted() {
-    if (localStorage.todoItems) {
+    if (localStorage.getItem(storageItemName)) {
       this.todoItems = JSON.parse(localStorage.getItem(storageItemName))
     }
   },
